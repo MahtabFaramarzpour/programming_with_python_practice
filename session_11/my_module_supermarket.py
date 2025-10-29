@@ -1,5 +1,5 @@
-import from super_market
-import re
+from super_market import *
+
 
 
 def name_validator(name):

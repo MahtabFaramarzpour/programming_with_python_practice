@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
-from my_module import *
+from my_module_supermarket import *
 from datetime import datetime,date
 
 
@@ -50,8 +50,8 @@ window.geometry("800x600")
 
 
 # ID
-Label (window, text="ID).place(x=40, y=40)")
-id = IntVar()
+Label (window, text="Id:").place(x=40, y=40)
+Id = IntVar()
 Entry(window, textvariable=id).place(x=160, y=40)
 
 # Name
