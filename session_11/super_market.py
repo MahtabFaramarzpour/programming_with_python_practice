@@ -3,18 +3,24 @@ from tkinter import messagebox
 from my_module_supermarket import *
 from datetime import datetime,date
 
-
+from session_11.main import id_validator
 
 product_list = []
 
 def save():
     try:
+        # todo run (2 ta window baz mishe)
+        # todo name_validator
+        # todo line 18
+        id_validator(id.get())
         name_validator(name.get())
         brand_validator(brand.get())
-        quantity_validator(quantity.get())
         price_validator(price.get())
-        exp_date = datetime.strptime(expire_date.get(), "%Y-%m-%d").date()
-        expiration_date_validator(exp_date)
+        quantity_validator(quantity.get())
+
+
+        expire_date = datetime.strptime(expiration_date.get(), "%Y-%m-%d").date()
+        expiration_date_validator(expire_date)
 
         product = {
             "id": id.get(),
@@ -22,8 +28,8 @@ def save():
             "brand": brand.get(),
             "quantity": quantity.get(),
             "price": price.get(),
-            "expiration_date": exp_date
-            }
+            "expire_date": expiration_date.date()
+        }
         product_list.append(product)
         messagebox.showinfo("Saved",  "Product Saved Successfully")
         id.set(0)
@@ -47,7 +53,7 @@ def total_price():
 window = Tk()
 window.title("Super Market")
 window.geometry("800x600")
-
+window.config(background = "misty rose")
 
 # ID
 Label (window, text="Id:").place(x=40, y=40)
@@ -66,7 +72,7 @@ Entry(window, textvariable=brand).place(x=160, y=120)
 
 # Quantity
 Label(window, text="Quantity:").place(x=40, y=160)
-quantity = StringVar()
+quantity = IntVar()
 Entry(window, textvariable=quantity).place(x=160, y=160)
 
 # Price
@@ -79,8 +85,8 @@ Label(window, text="Expiration date\n YYYY-MM-DD").place(x=40, y=240)
 exp_date = StringVar()
 Entry(window, textvariable=exp_date).place(x=160, y=240)
 
-Button (window, text="Save", command=save).place(x=160, y=280, width=300)
-Button (window, text="Total", command=total_price).place(x=160, y=280, width=300)
+Button(window, text="Save", command=save).place(x=160, y=280, width=150)
+Button(window, text="Total", command=total_price).place(x=160, y=320, width=150)
 
 
 

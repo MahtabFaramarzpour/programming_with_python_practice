@@ -1,5 +1,6 @@
 from super_market import *
-
+import re
+from datetime import date
 
 
 def name_validator(name):
@@ -12,13 +13,13 @@ def brand_validator(brand):
         raise NameError("invalid brand!")
 
 def quantity_validator(quantity):
-    if not (type(quantity) == int and quantity > 0):
+    if not type(quantity) == int and quantity > 0:
         raise NameError("invalid quantity!")
 
 def price_validator(price):
-    if not (type(price) == float and price >0 ):
+    if not type(price) == float and price > 0 :
         raise NameError("invalid price!")
 
 def expiration_date_validator(expiration_date):
-    if not expire_date > datetime.today().date():
-        raise NameError("invalid expiration date!")
+    if type(expire_date) != date and expiration_date >= date.today():
+        raise ValueError("invalid expiration date!")
