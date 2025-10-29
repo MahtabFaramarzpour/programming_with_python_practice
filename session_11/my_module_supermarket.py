@@ -8,6 +8,7 @@ def name_validator(name):
         raise NameError("invalid name!")
 
 
+
 def brand_validator(brand):
     if not re.match(r"^[a-zA-Z\s]{3,30}$", brand):
         raise NameError("invalid brand!")

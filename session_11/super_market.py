@@ -3,6 +3,7 @@ from tkinter import messagebox
 from my_module_supermarket import *
 from datetime import datetime,date
 
+
 from session_11.main import id_validator
 
 product_list = []
